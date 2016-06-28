@@ -1,0 +1,91 @@
+body {
+	font-size: 16px;
+	background: #eee;
+	height: 100%;
+}
+
+.logo-panel {
+	background-color: white;
+	width: 100%;
+	text-align: left;
+	margin: 2rem auto 0;
+	position: relative;
+}
+
+.shop-name {
+    position: absolute;
+    top: 1.8rem;
+    left: 9rem;
+    font-size: 2rem
+}
+
+.logo {
+	width: 7.5rem;
+}
+
+.code-panel {
+	background-color: white;
+	width: 95%;
+	margin: 3rem auto 0;
+}
+
+.code-input {
+	width: 100%;
+	height: 4rem;
+	color: #000;
+	background: 0;
+	padding-left: 1rem;
+	font-size: 1.5rem;
+	border: 0;
+}
+
+.code-submit-btn {
+	width: 95%;
+	height: 3rem;
+	line-height: 3rem;
+	background: #146fdf;
+	border: 0;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 1rem;
+	text-align: center;
+	display: block;
+	margin: 1.5rem auto 0;
+}
+
+.code-reset-btn {
+	width: 95%;
+	height: 3rem;
+	line-height: 3rem;
+	background: #e7e7e7;
+	border: 1px solid #9abbe3;
+	border-radius: 4px;
+	color: #146fdf;
+	font-size: 1rem;
+	text-align: center;
+	display: block;
+	margin: 1.5rem auto 0;
+}
+
+.url-panel {
+	width: 95%;
+	margin: 1rem auto 0;
+	position: relative;
+	overflow: hidden;
+}
+
+.to-shop {
+	float: right;
+	margin-right: -10px;
+	color: #246183;
+	font-size: 1.2rem;
+	padding: 15px 10px;
+}
+
+.to-faq {
+	float: left;
+	margin-left: -10px;
+	color: #246183;
+	font-size: 1.2rem;
+	padding: 15px 10px;
+}

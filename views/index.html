@@ -8,15 +8,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <!-- IOS特定的meta -->
     <meta content="telephone=no" name="format-detection">
+    <link rel="stylesheet" type="text/css" href="./css/loading.css">
+    <link rel="stylesheet" type="text/css" href="./css/dora.css">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
 </head>
 <body>
-    <div id="shopName"></div>
-	<input id="code" style="width: 100%;"></input>
-	<input id="submitBtn" type="button" value="确认"></input>
+    <div class="logo-panel">
+        <img src="./imgs/logo.png" class="logo">
+        <span id="shopName" class="shop-name"></span>
+    </div>
+    <div class="code-panel">
+        <input id="code" class="code-input" placeholder="请输出提货码"></input>
+    </div>
+    <div id="submitCodeBtn" href="javascript:void(0);" class="code-submit-btn">确认</div>
+    <div id="resetCodeBtn" href="javascript:void(0);" class="code-reset-btn">重置</div>
+    <div class="url-panel"> 
+        <span id="toFaqBtn" class="to-faq">常见问题</span> 
+        <span id="toShopBtn" class="to-shop">进入店铺</span>   
+    </div>
+    <div id="loading-panel" class="loading-panel" style="display: none;">
+        <div id="loading-icon" class="loading-icon">
+            <div class="ball"></div>
+            <div class="ball1"></div>
+        </div>
+    </div>
 </body>
 <footer>
 	<script type="text/javascript" src="./libs/zepto-min.js"></script>
     <script type="text/javascript" src="./libs/urlParams.js"></script>
+    <script type="text/javascript" src="./libs/loading.js"></script>
+    <script type="text/javascript" src="./libs/dora.js"></script>
     <script type="text/javascript" src="./conf/shopCN.js"></script>
 	<script type="text/javascript" src="./index.js"></script>
 </footer>

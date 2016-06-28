@@ -1,29 +1,64 @@
 window.onload = (function() {
-	return function() {
-		var shopCode = urlParams().shopCode;
-		
-		$("#shopName").html(shopCN[shopCode]);
+	var init = function() {
+		_initTitle();
+		_bindEvents();
+	}
 
-		$("#submitBtn").on("click", function(event) {
+	var _initTitle = function() {
+		var shopCode = urlParams().shopCode;
+		$("#shopName").html(shopCN[shopCode]);
+	}
+
+	var _bindEvents = function() {
+		$("#submitCodeBtn").on("click", function(event) {
 		 	$.ajax({
 	            url: "http://127.0.0.1:5533/code",
 	            type: "POST",
 	            data: {
 	                code: $("#code").val(),
-	                shopCode: shopCode
+	                shopCode: urlParams().shopCode
 	            },
-	            dataType: 'json',
+	            dataType: "json",
 	            success: function (data, status, xhr) {
-	                console.log("sussess");
+	                _hideLoading();
+	            	if (data.code == 200) {
+	            		$.tipsShow({message : "操作成功", type : "success"});
+	            		$("#code").val("");
+	            	} else {
+	            		$.tipsShow({message : data.msg, type : "warning"});
+	            	}
 	            },
 	            beforeSend: function () {
-	                console.log("showloading");
+	                _showLoading();
 	            },
 	            error: function (xhr, errorType, status) {
-	                console.log("hideloading");
+	                _hideLoading();
 	                console.log("网络请求失败, 请检查网络");
+	                $.tipsShow({message : "网络异常", type : "danger"});
 	            }
 	        });
-		});
+		});	
+
+		$("#resetCodeBtn").on("click", function(event) {
+		 	$("#code").val("");
+		});	
+
+		$("#toFaqBtn").on("click", function(event) {
+		 	alert("请联系：13632257593");
+		});	
+
+		$("#toShopBtn").on("click", function(event) {
+		 	window.open("http://www.baidu.com");
+		});	
 	}
+
+	var _showLoading = function() {
+		$("#loading-panel").css("display", "block");
+	}
+
+	var _hideLoading = function() {
+		$("#loading-panel").css("display", "none");
+	}
+
+	return init;
 })();
