@@ -1,0 +1,22 @@
+{
+  "name": "yz-salesman",
+  "version": "0.0.1",
+  "description": "block management pager",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "keywords": [
+    "block",
+    "page",
+    "activity",
+    "component"
+  ],
+  "author": "vipme",
+  "dependencies": {
+    "fs": "*",
+    "express": "4.6.1",
+    "body-parser": "~1.0.0"
+  },
+  "license": "MIT"
+}
