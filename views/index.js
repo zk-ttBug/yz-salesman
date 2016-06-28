@@ -1,12 +1,16 @@
 window.onload = (function() {
 	return function() {
+		var shopCode = urlParams().shopCode;
+		
+		$("#shopName").html(shopCN[shopCode]);
+
 		$("#submitBtn").on("click", function(event) {
 		 	$.ajax({
 	            url: "http://127.0.0.1:5533/code",
 	            type: "POST",
 	            data: {
 	                code: $("#code").val(),
-	                shopCode: 1
+	                shopCode: shopCode
 	            },
 	            dataType: 'json',
 	            success: function (data, status, xhr) {

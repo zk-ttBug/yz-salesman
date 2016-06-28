@@ -5,7 +5,6 @@ var fs = require("fs");
 var SDK = require("youzan-sdk");
 var sdk = SDK({key: "664b8df169ef1ba5f8", secret: "4363ed8c3d274d25f88075949076aac8"});
 
-var shopCN = require("../conf/shopCN");
 var dateTool = require("../utils/dateTool");
 var response = require("../utils/response");
 var resObj = require("../conf/resObj");
@@ -22,7 +21,7 @@ var _checkCodeLog = function(code, shopCode, checkRes) {
 	var date = new Date().getTime();
 	var content = "";
 	content += "操作时间：" + dateTool.dateTimeFormat(date) + " | ";
-	content += "操作店铺：" + shopCN[shopCode] + " | ";
+	content += "操作店铺代码：" + shopCode + " | ";
 	content += "兑换码：" + code + " | ";
 	content += "操作结果: " + checkRes + "\n";
 	fs.writeFileSync("logs/" + dateTool.dateFormat(date), content, {flag: "a"});
