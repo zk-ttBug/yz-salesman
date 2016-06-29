@@ -33,13 +33,20 @@ module.exports = function() {
 		}
 		var code = req.body.code;
 		var shopCode = req.body.shopCode;
-		codeModule.check(code, shopCode, function(resp) {
+		codeModule.apply(code, shopCode, function(resp) {
 			res.send(resp);
 		});
 	});
 
-	router.get("/pages/:id", function(req, res) {
-		res.render("index.html");
+	router.get("/codeInfo", function(req, res) {
+		if (!req.query || !req.query.code) {
+			res.send(response(resObj.paramsError));
+			return ;
+		}
+		var code = req.query.code;
+		codeModule.get(code, function(resp) {
+			res.send(resp);
+		});
 	});
 
     return router;

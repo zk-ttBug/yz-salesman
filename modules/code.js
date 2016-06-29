@@ -28,14 +28,14 @@ var _checkCodeLog = function(code, shopCode, checkRes) {
 }
 
 /**
- * 校验 code
+ * 应用 code
  *
  * @param {String} code 校验码
  * @param {String} shopCode 店铺码
  * @param {Function} callback 回调方法
- * @method router.get.coms
+ * @method apply
  */
-var check = function(code, shopCode, callback) {
+var apply = function(code, shopCode, callback) {
 	sdk.post("kdt.trade.selffetchcode.apply", {
 	    code: code,
 	}).then(function(resp) {
@@ -59,6 +59,35 @@ var check = function(code, shopCode, callback) {
 }
 
 /**
+ * 获取提货码详情
+ *
+ * @param {String} code 校验码
+ * @param {Function} callback 回调方法
+ * @method get
+ */
+var get = function(code, callback) {
+	sdk.get("kdt.trade.selffetchcode.get", {
+	    code: code
+	}).then(function(resp) {
+		console.log(resp.response.trade.orders);
+	    callback && callback(response(resObj.success));
+	}, function(resp) {
+		var msg;
+		try {
+			var errorResponse = JSON.parse(resp).error_response;
+			msg = errorResponse.msg;
+		} catch(e) {
+			console.log(e);
+			msg = resObj.checkCodeError.msg
+		}
+		callback && callback(response({
+			code: resObj.checkCodeError.code,
+			msg: msg
+		}));
+	});
+}
+
+/**
  * node端：code 模块
  *
  * @class code
@@ -66,5 +95,6 @@ var check = function(code, shopCode, callback) {
  * @constructor
  */
 module.exports = {
-	check: check
+	apply: apply,
+	get: get
 }

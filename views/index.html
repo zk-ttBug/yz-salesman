@@ -9,6 +9,7 @@
     <!-- IOS特定的meta -->
     <meta content="telephone=no" name="format-detection">
     <link rel="stylesheet" type="text/css" href="./css/loading.css">
+    <link rel="stylesheet" type="text/css" href="./css/orderDetail.css">
     <link rel="stylesheet" type="text/css" href="./css/dora.css">
     <link rel="stylesheet" type="text/css" href="./css/index.css">
 </head>
@@ -20,13 +21,28 @@
     <div class="code-panel">
         <input id="code" class="code-input" placeholder="请输出提货码"></input>
     </div>
-    <div id="submitCodeBtn" href="javascript:void(0);" class="code-submit-btn">确认</div>
+    <div id="getCodeInfoBtn" href="javascript:void(0);" class="code-submit-btn">确认</div>
     <div id="resetCodeBtn" href="javascript:void(0);" class="code-reset-btn">重置</div>
     <div class="url-panel"> 
-        <span id="toFaqBtn" class="to-faq">常见问题</span> 
-        <span id="toShopBtn" class="to-shop">进入店铺</span>   
+        <span id="toFaqBtn" class="to-faq">a</span> 
+        <span id="toShopBtn" class="to-shop">b</span>   
     </div>
-    <div id="loading-panel" class="loading-panel" style="display: none;">
+    <div id="orderDetailMask" class="order-detail-mask">
+        <div id="orderDetailPanel" class="order-detail-panel">
+            <div class="od-panel">
+                <div class="od-orderNo">订单号:36123478996</div>
+                <div class="od-item">
+                    <img src="./imgs/logo.png" class="od-product-img">
+                    <div class="od-info">
+                        <div class="odi-title"><span>gaodian</span></div>
+                        <div class="odi-num"><span> ￥2.00 (单价)</span><span> X </span><span> 8 (数量)</span></div>
+                        <div class="odi-total-price"><span>总价：</span><span>￥16.00</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="loadingPanel" class="loading-panel" style="display: none;">
         <div id="loading-icon" class="loading-icon">
             <div class="ball"></div>
             <div class="ball1"></div>

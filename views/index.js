@@ -10,23 +10,45 @@ window.onload = (function() {
 	}
 
 	var _bindEvents = function() {
-		$("#submitCodeBtn").on("click", function(event) {
+		// $("#submitCodeBtn").on("click", function(event) {
+		//  	$.ajax({
+	 //            url: "http://127.0.0.1:5533/code",
+	 //            type: "POST",
+	 //            data: {
+	 //                code: $("#code").val(),
+	 //                shopCode: urlParams().shopCode
+	 //            },
+	 //            dataType: "json",
+	 //            success: function (data, status, xhr) {
+	 //                _hideLoading();
+	 //            	if (data.code == 200) {
+	 //            		$.tipsShow({message : "操作成功", type : "success"});
+	 //            		$("#code").val("");
+	 //            	} else {
+	 //            		$.tipsShow({message : data.msg, type : "warning"});
+	 //            	}
+	 //            },
+	 //            beforeSend: function () {
+	 //                _showLoading();
+	 //            },
+	 //            error: function (xhr, errorType, status) {
+	 //                _hideLoading();
+	 //                console.log("网络请求失败, 请检查网络");
+	 //                $.tipsShow({message : "网络异常", type : "danger"});
+	 //            }
+	 //        });
+		// });	
+
+		$("#getCodeInfoBtn").on("click", function(event) {
 		 	$.ajax({
-	            url: "http://127.0.0.1:5533/code",
-	            type: "POST",
+	            url: "http://127.0.0.1:5533/codeInfo",
+	            type: "GET",
 	            data: {
-	                code: $("#code").val(),
-	                shopCode: urlParams().shopCode
+	                code: $("#code").val()
 	            },
 	            dataType: "json",
 	            success: function (data, status, xhr) {
 	                _hideLoading();
-	            	if (data.code == 200) {
-	            		$.tipsShow({message : "操作成功", type : "success"});
-	            		$("#code").val("");
-	            	} else {
-	            		$.tipsShow({message : data.msg, type : "warning"});
-	            	}
 	            },
 	            beforeSend: function () {
 	                _showLoading();
@@ -53,11 +75,11 @@ window.onload = (function() {
 	}
 
 	var _showLoading = function() {
-		$("#loading-panel").css("display", "block");
+		$("#loadingPanel").css("display", "block");
 	}
 
 	var _hideLoading = function() {
-		$("#loading-panel").css("display", "none");
+		$("#loadingPanel").css("display", "none");
 	}
 
 	return init;
