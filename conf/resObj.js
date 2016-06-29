@@ -31,13 +31,24 @@ module.exports = {
 	},
 
 	/**
-     * 检查校验码错误
-     * @property checkCodeError 
+     * 查看提货码详情错误
+     * @property getCodeDetailError 
      * @type Object
      * @static 
      */
-	checkCodeError: {
+	getCodeDetailError: {
 		code: 4002,
-		msg: "check code error"
+		msg: "get code detail error"
+	},
+
+	/**
+     * 检查提货码错误
+     * @property applyCodeError 
+     * @type Object
+     * @static 
+     */
+	applyCodeError: {
+		code: 4003,
+		msg: "apply code error"
 	}
 }
