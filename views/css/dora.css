@@ -134,6 +134,7 @@ body {
     width: 80%;
     margin: 0 auto;
     position: fixed;
+    z-index: 1000;
 }
 
 .tips .tips-content {

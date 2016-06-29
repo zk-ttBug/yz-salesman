@@ -5,6 +5,7 @@
 	background-color: rgba(0, 0, 0, 0.3);
 	left: 0px;
 	top: 0px;
+	z-index: 200;
 }
 
 .loading-icon {

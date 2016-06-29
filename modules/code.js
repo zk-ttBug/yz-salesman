@@ -3,7 +3,8 @@
 var fs = require("fs");
 
 var SDK = require("youzan-sdk");
-var sdk = SDK({key: "664b8df169ef1ba5f8", secret: "4363ed8c3d274d25f88075949076aac8"});
+var secret = require("../secret");
+var sdk = SDK(secret());
 
 var dateTool = require("../utils/dateTool");
 var response = require("../utils/response");
@@ -38,14 +39,15 @@ var get = function(code, callback) {
 	sdk.get("kdt.trade.selffetchcode.get", {
 	    code: code
 	}).then(function(resp) {
-		var response = resp.response;
-		if (!response || !response.code || !response.trade || !response.trade.status || !response.trade.orders) {
+		var sdkResp = resp.response;
+		if (sdkResp === undefined || sdkResp.code === undefined || sdkResp.status === undefined 
+			|| sdkResp.trade === undefined || sdkResp.trade.orders === undefined) {
 			callback && callback(response(resObj.getCodeDetailError));
 			return ;
 		}
-		var code = response.code;
-		var status = response.trade.status;
-		var orders = response.trade.orders;
+		var code = sdkResp.code;
+		var status = sdkResp.status;
+		var orders = sdkResp.trade.orders;
 
 	    callback && callback(response(resObj.success, {
 	    	code: code,
@@ -55,13 +57,15 @@ var get = function(code, callback) {
 	    		for (var i = 0, len = orders.length; i < len; ++i) {
 	    			var orderInfo = orders[i];
 	    			oRes.push({
+	    				orderId: orderInfo.oid,
 	    				title: orderInfo.title,
 	    				price: orderInfo.price,
 	    				num: orderInfo.num,
 	    				totalPrice: orderInfo.total_fee,
-	    				pic_thumb_path: orderInfo.pic_thumb_path
+	    				imgUrl: orderInfo.pic_thumb_path
 	    			})
 	    		}
+	    		console.log(oRes);
 	    		return oRes;
 	    	})()
 	    }));

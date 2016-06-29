@@ -5,59 +5,107 @@
 	background-color: rgba(0, 0, 0, 0.3);
 	left: 0px;
 	top: 0px;
+	z-index: 0;
 }
 
-.order-detail-panel {
-	overflow: scroll;
+.code-detail-panel {
 	position: absolute;
-	border-radius: 1rem;
-	background-color: rgba(255, 255, 255, 0.95);
+	background-color: rgba(255, 255, 255,1);
 	width: 18rem;
-	height: 28rem;
+	height: 27rem;
 	left: 50%;
 	top: 50%;
 	margin-left: -9rem;
 	margin-top: -14rem;
+	z-index: 100;
 }
 
 .od-panel {
-	margin: 1rem 0;
-	background-color: #f6f6f6;
-	padding: .5rem 0;
+	margin-bottom: 1rem;
+	padding: .5rem 0.625rem;
+	height: 20rem;
+	overflow: scroll;
 }
 
 .od-orderNo {
 	margin-bottom: .5rem;
-	border-bottom: .1rem dashed black;
+	border-bottom: .1rem dashed #666;
+	font-size: 0.75rem;
+	height: 2rem;
+	line-height: 2rem;
 }
 
-.od-item {
-	display: -webkit-box;
+.od-item{
+	position: relative;
 }
 
-.od-product-img {
+.od-product-img-panel {
+	line-height: 5rem;
+    float: left;
+}
+
+.od-product-img-panel img {
 	width: 5rem;
+	vertical-align: middle;
 }
 
 .od-info {
-	-webkit-box-flex: 1;
 	font-size: .5rem;
 	color: #373737;
-	padding-left: 1rem;
+	padding-left: 6rem;
 	padding-right: 1rem;
+	height: 5rem;
 }
 
 .odi-title {
 	font-size: 1.2rem;
 	font-weight: bold;
 	margin: .3rem 0;
+	color: #888;
+	width: 100%
+}
+
+.odi-title span {
+	word-wrap: break-word;
 }
 
 .odi-num {
-	text-align: right;
+	text-align: left;
 	margin: .1rem 0;
+	color:red;
 }
 
 .odi-total-price {
-	text-align: right;
+	text-align: left;
+	color:red;
+}
+
+.order-shipnum {
+	height: 3rem;
+	font-size: 1rem;
+	line-height: 3rem;
+	padding: 0 0.625rem;
+	color: #000;
+	font-weight: bolder;
+}
+.od-list-item{ 
+	background-color: #eee;
+	padding: 0 0.5rem 1rem;
+	margin-bottom: .5rem;
+}
+
+.odi-confirm-btn {
+	height: 2rem;
+	width: 100%;
+	background-color: #e53935;
+	color: #ffffff;
+	text-align: center;
+	line-height: 2rem;
+	font-size: 1rem;
+	z-index: 999;
+}
+
+.disabled {
+	background: #454545;
+	color: #ffffff;
 }

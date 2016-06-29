@@ -19,27 +19,22 @@
         <span id="shopName" class="shop-name"></span>
     </div>
     <div class="code-panel">
-        <input id="code" class="code-input" placeholder="请输出提货码"></input>
+        <input id="code" class="code-input" placeholder="请输出提货码" />
     </div>
     <div id="getCodeInfoBtn" href="javascript:void(0);" class="code-submit-btn">确认</div>
     <div id="resetCodeBtn" href="javascript:void(0);" class="code-reset-btn">重置</div>
     <div class="url-panel"> 
-        <span id="toFaqBtn" class="to-faq">a</span> 
-        <span id="toShopBtn" class="to-shop">b</span>   
+        <span id="toFaqBtn" class="to-faq">常见问题</span> 
+        <span id="toShopBtn" class="to-shop">进入店铺</span>   
     </div>
-    <div id="orderDetailMask" class="order-detail-mask">
-        <div id="orderDetailPanel" class="order-detail-panel">
-            <div class="od-panel">
-                <div class="od-orderNo">订单号:36123478996</div>
-                <div class="od-item">
-                    <img src="./imgs/logo.png" class="od-product-img">
-                    <div class="od-info">
-                        <div class="odi-title"><span>gaodian</span></div>
-                        <div class="odi-num"><span> ￥2.00 (单价)</span><span> X </span><span> 8 (数量)</span></div>
-                        <div class="odi-total-price"><span>总价：</span><span>￥16.00</span></div>
-                    </div>
-                </div>
+    <div id="orderDetailDialog" style="display: none;">
+        <div id="orderDetailMask" class="order-detail-mask"></div>
+        <div class="code-detail-panel">
+            <div id="order-shipnum" class="order-shipnum">
+                提货单:<span id="orderDetailCode">119087</span>
             </div>
+            <div id="orderDetailPanel" class="od-panel"></div>
+            <div id="applyCodeBtn" class="odi-confirm-btn disabled">确认</div>
         </div>
     </div>
     <div id="loadingPanel" class="loading-panel" style="display: none;">

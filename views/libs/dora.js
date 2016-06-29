@@ -90,8 +90,8 @@ blockObj.prototype = {
             'margin-top' : - $(_this.obj).height()/2 + 'px'
         });
 
-        $("<div class='doraui_mask' style='z-index: 10'></div>").insertBefore(_this.obj);
-        $(_this.obj).css('z-index', 11);
+        $("<div class='doraui_mask' style='z-index: 1000'></div>").insertBefore(_this.obj);
+        $(_this.obj).css('z-index', 1001);
 //        禁止背景拖动
         document.body.addEventListener('touchmove', stopScroll , false);
 
@@ -144,7 +144,7 @@ tipsObj.prototype = {
         var confirmBtn = $(_this.obj).find('.confirm');
 //        设置容器的居中显示
         setContainerPosition(_this.obj);
-        $(_this.obj).css('z-index', 11);
+        $(_this.obj).css('z-index', 1001);
         document.body.addEventListener('touchmove', stopScroll , false);
         setTimeout(function () {
             // $(_this.obj).animate({
