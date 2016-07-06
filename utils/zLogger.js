@@ -11,7 +11,7 @@ var fs = require("fs");
 var _dateFormat = function(timeStamp) {
     var date = new Date(Number(timeStamp));
     var year = date.getFullYear();
-    var month = date.getMonth();
+    var month = date.getMonth() + 1;
     var day = date.getDate();
     return year + "-" + month + "-" + day;
 };
@@ -25,7 +25,7 @@ var _dateFormat = function(timeStamp) {
 var dateTimeFormat = function(timeStamp) {
     var date = new Date(Number(timeStamp));
     var year = date.getFullYear();
-    var month = date.getMonth();
+    var month = date.getMonth() + 1;
     var day = date.getDate();
     var hour = date.getHours();
     var min = date.getMinutes();

@@ -3,7 +3,7 @@
 var fs = require("fs");
 
 var SDK = require("youzan-sdk");
-var secret = require("../secret");
+var secret = require("../conf/secret");
 var sdk = SDK(secret());
 
 var resObj = require("../conf/resObj");
@@ -35,6 +35,7 @@ var _logContent = function(code, shopCode, checkRes) {
  * @method get
  */
 var get = function(code, callback) {
+	zLogger.log("查询 code: " + code);
 	sdk.get("kdt.trade.selffetchcode.get", {
 	    code: code
 	}).then(function(resp) {
