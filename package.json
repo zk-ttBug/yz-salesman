@@ -14,6 +14,9 @@
   ],
   "author": "vipme",
   "dependencies": {
+    "gulp": "*",
+    "gulp-concat": "*",
+    "gulp-uglify": "*",
     "youzan-sdk": "*",
     "fs": "*",
     "express": "4.6.1",

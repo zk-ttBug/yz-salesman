@@ -12,7 +12,7 @@ window.onload = (function() {
 	var _bindEvents = function() {
 		$("#getCodeInfoBtn").on("click", function(event) {
 		 	$.ajax({
-	            url: "http://127.0.0.1:5533/codeInfo",
+	            url: "./codeInfo",
 	            type: "GET",
 	            data: {
 	                code: $("#code").val()
@@ -39,10 +39,10 @@ window.onload = (function() {
 		});	
 
 		$("#applyCodeBtn").on("click", function(event) {
-			// if ($("#applyCodeBtn").hasClass("disabled")) return ;
+			if ($("#applyCodeBtn").hasClass("disabled")) return ;
 
 		 	$.ajax({
-	            url: "http://127.0.0.1:5533/code",
+	            url: "./code",
 	            type: "POST",
 	            data: {
 	                code: $("#orderDetailCode").html(),
@@ -107,7 +107,8 @@ window.onload = (function() {
                     '<div class="od-product-img-panel"><img src="' + order.imgUrl + '" class="od-product-img"></div>' +
                     '<div class="od-info">' +
                         '<div class="odi-title"><span>' + order.title + '</span></div>' +
-                        '<div class="odi-num"><span class="odi-price"> ￥' + order.price + ' (单价)</span><span> X </span><span> ' + order.num + ' (数量)</span></div>' +
+                        '<div class="odi-price"><span>单价：￥' + order.price + '</span></div>' +
+                        '<div class="odi-num"><span>数量：x ' + order.num + '</span></div>' +
                         '<div class="odi-total-price"><span>总价：</span><span class="odi-price">￥' + order.totalPrice + '</span></div>' +
                     '</div>' +
                 '</div>' +

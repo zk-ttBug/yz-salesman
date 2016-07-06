@@ -11,12 +11,12 @@
 .code-detail-panel {
 	position: absolute;
 	background-color: rgba(255, 255, 255,1);
-	width: 18rem;
-	height: 27rem;
+	width: 90%;
+	height: 432px;
 	left: 50%;
 	top: 50%;
-	margin-left: -9rem;
-	margin-top: -14rem;
+	margin-left: -45%;
+	margin-top: -216px;
 	z-index: 100;
 }
 
@@ -35,7 +35,15 @@
 	line-height: 2rem;
 }
 
-.od-item{
+.od-list-item { 
+	background-color: #ffffff;
+	margin-bottom: 1.5rem;
+	padding-bottom: 1rem;
+	border-bottom: .3rem solid #eee;
+ 	box-shadow: 5px 3px 5px #eee;
+}
+
+.od-item {
 	position: relative;
 }
 
@@ -50,18 +58,16 @@
 }
 
 .od-info {
-	font-size: .5rem;
+	font-size: 1rem;
 	color: #373737;
 	padding-left: 6rem;
 	padding-right: 1rem;
-	height: 5rem;
 }
 
 .odi-title {
 	font-size: 1.2rem;
 	font-weight: bold;
 	margin: .3rem 0;
-	color: #888;
 	width: 100%
 }
 
@@ -69,10 +75,16 @@
 	word-wrap: break-word;
 }
 
+.odi-price {
+	text-align: left;
+	margin: .1rem 0;
+	color: red;
+}
+
 .odi-num {
 	text-align: left;
 	margin: .1rem 0;
-	color:red;
+	color: red;
 }
 
 .odi-total-price {
@@ -87,11 +99,6 @@
 	padding: 0 0.625rem;
 	color: #000;
 	font-weight: bolder;
-}
-.od-list-item{ 
-	background-color: #eee;
-	padding: 0 0.5rem 1rem;
-	margin-bottom: .5rem;
 }
 
 .odi-confirm-btn {

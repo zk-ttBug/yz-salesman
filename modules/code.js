@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var fs = require("fs");
 
@@ -6,26 +6,25 @@ var SDK = require("youzan-sdk");
 var secret = require("../secret");
 var sdk = SDK(secret());
 
+var resObj = require("../conf/resObj");
 var dateTool = require("../utils/dateTool");
 var response = require("../utils/response");
-var resObj = require("../conf/resObj");
+var zLogger = require("../utils/zLogger");
 
 /**
- * 记录日志 _writeLog
+ * 记录日志 _logContent
  *
  * @param {Number} code 校验码
  * @param {Number} shopCode 店铺码
  * @param {String} checkRes 校验结果
- * @method _checkCodeLog
+ * @method _logContent
  */
-var _checkCodeLog = function(code, shopCode, checkRes) {
-	var date = new Date().getTime();
+var _logContent = function(code, shopCode, checkRes) {
 	var content = "";
-	content += "操作时间：" + dateTool.dateTimeFormat(date) + " | ";
 	content += "操作店铺代码：" + shopCode + " | ";
 	content += "兑换码：" + code + " | ";
 	content += "操作结果: " + checkRes + "\n";
-	fs.writeFileSync("logs/" + dateTool.dateFormat(date), content, {flag: "a"});
+	return content;
 }
 
 /**
@@ -45,6 +44,7 @@ var get = function(code, callback) {
 			callback && callback(response(resObj.getCodeDetailError));
 			return ;
 		}
+
 		var code = sdkResp.code;
 		var status = sdkResp.status;
 		var orders = sdkResp.trade.orders;
@@ -65,7 +65,6 @@ var get = function(code, callback) {
 	    				imgUrl: orderInfo.pic_thumb_path
 	    			})
 	    		}
-	    		console.log(oRes);
 	    		return oRes;
 	    	})()
 	    }));
@@ -98,7 +97,7 @@ var apply = function(code, shopCode, callback) {
 	    code: code,
 	}).then(function(resp) {
 	    callback && callback(response(resObj.success));
-	    _checkCodeLog(code, shopCode, "操作成功");
+	    zLogger.log(_logContent(code, shopCode, "操作成功"));
 	}, function(resp) {
 		var msg;
 		try {
@@ -112,7 +111,7 @@ var apply = function(code, shopCode, callback) {
 			code: resObj.applyCodeError.code,
 			msg: msg
 		}));
-		_checkCodeLog(code, shopCode, msg);
+		zLogger.log(_logContent(code, shopCode, msg));
 	});
 }
 
