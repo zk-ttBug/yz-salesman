@@ -54,6 +54,7 @@ window.onload = (function() {
 	            	if (resp.code == 200) {
 	            		$.tipsShow({message : "操作成功", type : "success"});
 	            		$("#code").val("");
+	            		_hideOrerInfoDialog();
 	            	} else {
 	            		$.tipsShow({message : resp.msg, type : "warning"});
 	            	}
