@@ -27,18 +27,30 @@ module.exports = function() {
 	});
 	
 	router.post("/code", function(req, res) {
-		if (!req.body || !req.body.code || !req.body.shopCode) {
+		if (!req.body || !req.body.code || !req.body.userAccount) {
 			res.send(response(resObj.paramsError));
 			return ;
 		}
+		var userAccount = req.body.userAccount;
 		var code = req.body.code;
-		var shopCode = req.body.shopCode;
-		codeModule.apply(code, shopCode, function(resp) {
+		codeModule.apply(userAccount, code, function(resp) {
 			res.send(resp);
 		});
 	});
 
 	router.get("/codeInfo", function(req, res) {
+		if (!req.query || !req.query.code || !req.query.userAccount) {
+			res.send(response(resObj.paramsError));
+			return ;
+		}
+		var userAccount = req.query.userAccount;
+		var code = req.query.code;
+		codeModule.get(userAccount, code, function(resp) {
+			res.send(resp);
+		});
+	});
+
+	router.get("/functionInfo", function(req, res) {
 		if (!req.query || !req.query.code) {
 			res.send(response(resObj.paramsError));
 			return ;

@@ -50,5 +50,16 @@ module.exports = {
 	applyCodeError: {
 		code: 4003,
 		msg: "apply code error"
+	},
+
+	/**
+     * 用户不存在
+     * @property userNotExist 
+     * @type Object
+     * @static 
+     */
+	userNotExist: {
+		code: 4004,
+		msg: "员工手机号不存在，请检查清楚 ^_^"
 	}
 }

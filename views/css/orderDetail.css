@@ -22,7 +22,7 @@
 
 .od-panel {
 	margin-bottom: 1rem;
-	padding: .5rem 0.625rem;
+	padding: 0 0.625rem;
 	height: 20rem;
 	overflow: scroll;
 }

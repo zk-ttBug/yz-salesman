@@ -30,6 +30,15 @@ body {
 	border-bottom: .2rem solid #eee;
 }
 
+.worker-code-input {
+	height: 3rem;
+	color: #000;
+	background: 0;
+	padding-left: 1rem;
+	font-size: 1.6rem;
+	border: 0;
+}
+
 .code-input {
 	height: 3rem;
 	color: #000;
